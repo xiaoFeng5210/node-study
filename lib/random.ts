@@ -3,7 +3,7 @@ export function randomInt(min: number, max: number) {
   return Math.floor(min * (1 - p) + max * p);
 }
 
-export function createRandomPick(arr: string[]) {
+export function createRandomPicker(arr: string[]) {
   arr = [...arr]
   function randomPick() {
     const len = arr.length - 1
