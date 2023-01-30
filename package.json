@@ -1,0 +1,27 @@
+{
+  "name": "node-study",
+  "version": "1.0.0",
+  "description": "一个用来学习node的项目，里面会有一些小项目小事例",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoFeng5210/node-study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoFeng5210/node-study/issues"
+  },
+  "homepage": "https://github.com/xiaoFeng5210/node-study#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.4"
+  }
+}
