@@ -3,13 +3,9 @@ export function randomInt(min: number, max: number) {
   return Math.floor(min * (1 - p) + max * p);
 }
 
-let lastPicked = ''
 export function randomPick(arr: string[]) {
-  let picked = ''
-  do {
-    const index = randomInt(0, arr.length)
-    picked = arr[index]
-  } while (picked === lastPicked)
-  lastPicked = picked
-  return picked
+  const len = arr.length - 1
+  const index = randomInt(0, len);
+  [arr[index], arr[len]] = [arr[len], arr[index]]
+  return arr[index]
 }
