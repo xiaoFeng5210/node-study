@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { resolve } from 'path';
-import { createRandomPicker } from './lib/random';
+import { createRandomPicker, randomInt } from './lib/random';
 
 type SentenceKey = 'famous' | 'bosh_before' | 'bosh' | 'said' | 'conclude';
 type Pick = () => string;
@@ -29,6 +29,7 @@ const [pickFamous, pickBoshBefore, pickBosh, pickSaid, pickConclude] = [famous, 
 });
 
 sentence(pickFamous, { said: pickSaid, conclude: pickConclude }); // 生成一条名人名言
+
 
 
 
