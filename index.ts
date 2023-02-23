@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { resolve } from 'path';
 import { createRandomPicker, randomInt } from './lib/random';
 
-type SentenceKey = 'famous' | 'bosh_before' | 'bosh' | 'said' | 'conclude';
+type SentenceKey = 'famous' | 'bosh_before' | 'bosh' | 'said' | 'conclude' | 'title';
 type Pick = () => string;
 type Replacer = {
   [key in SentenceKey]?: Pick | string
@@ -14,7 +14,7 @@ const data = readFileSync(path, { encoding: 'utf-8' })
 
 const corpus = JSON.parse(data)
 
-function sentence(pick: Function, replacer: Replacer) {
+export function sentence(pick: Function, replacer: Replacer) {
   let ret = pick()
   for (const key in replacer) {
     ret = ret.replace(new RegExp(`{{${key}}}`, 'g'),
