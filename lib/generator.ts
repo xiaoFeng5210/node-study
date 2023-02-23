@@ -1,7 +1,7 @@
 import { sentence } from "index";
 import { createRandomPicker, randomInt } from "./random";
 
-export function generate(title: string, { corpus, min = 6000, max = 10000, }: any) {
+export function generate(title: string, { corpus, min = 6000, max = 10000, } = {}) {
   const articleLength = randomInt(min, max);
   const { famous, bosh_before, bosh, said, conclude } = corpus;
   const [pickFamous, pickBoshBefore, pickBosh, pickSaid, pickConclude] = [famous, bosh_before, bosh, said, conclude].map((item) => {
