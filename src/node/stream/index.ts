@@ -3,23 +3,23 @@ import path from 'path'
 
 const inputPath = path.resolve(__dirname, '../../assets/input.txt')
 const outputPath = path.resolve(__dirname, '../../assets/output.txt')
-
-const readerStream = fs.createReadStream(inputPath)
 let data = ''
 
-readerStream.setEncoding('utf8')
-
-readerStream.on('data', function (chunk) {
-  data += chunk
-  console.log(chunk)
-})
-
-readerStream.on('end', function () {
-})
-
-readerStream.on('error', function (err) {
-  console.log(err.stack)
-})
+function read() {
+  const readerStream = fs.createReadStream(inputPath)
+  readerStream.setEncoding('utf8')
+  readerStream.on('data', function (chunk) {
+    data += chunk
+  })
+  
+  readerStream.on('end', function () {
+    console.log('读取完成')
+    write()
+  })
+  
+  readerStream.on('error', function (err) {
+  })
+}
 
 function write() {
   const writerStream = fs.createWriteStream(path.resolve(__dirname, '../../assets/output.txt'))
@@ -27,11 +27,10 @@ function write() {
   writerStream.end()
 
   writerStream.on('finish', function() {
-    console.log('写入完成')
+    console.log('写入完成。')
   })
 
   writerStream.on('error', function(err) {
-    console.log(err.stack)
   })
 }
 
@@ -41,4 +40,6 @@ export function pipeStream() {
 
   readerStream.pipe(writerStream)
 }
+
+read()
 
