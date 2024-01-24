@@ -49,6 +49,3 @@ async function handlerReadFile() {
   const res = await readFile(resolve(__dirname, '../../../corpus/test.txt'), { encoding: 'utf-8' })
   console.log(res.toString())
 }
-
-handlerReadFile()
-
