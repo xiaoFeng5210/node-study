@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { readFile } from 'node:fs/promises';
-import { readdir } from 'node:fs/promises';
+import { readdir, mkdir, writeFile } from 'node:fs/promises';
 
 interface FilesList {
   [key: string]: string
@@ -30,4 +30,25 @@ export async function egReadAllFiles() {
     }
   }
 }
+
+
+/** 增加文件夹 */
+async function handlerMkdir() {
+  const res = mkdir(resolve(__dirname, '../../../corpus/test/test01'), { recursive: true })
+  console.log(res)
+}
+
+/** 写入内容 */
+async function handlerWriteFile() {
+  const res = await writeFile(resolve(__dirname, '../../../corpus/test.txt'), 'hello world', { encoding: 'utf-8', flag: 'a'})
+  console.log(res)
+}
+
+/** 读取内容 */
+async function handlerReadFile() {
+  const res = await readFile(resolve(__dirname, '../../../corpus/test.txt'), { encoding: 'utf-8' })
+  console.log(res.toString())
+}
+
+handlerReadFile()
 
